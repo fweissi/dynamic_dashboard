@@ -5,6 +5,9 @@ struct CreateTodo: Migration {
         return database.schema("todos")
             .id()
             .field("title", .string, .required)
+            .field("status", .string)
+            .field("due", .datetime)
+            .field("labels", .int)
             .create()
     }
 
