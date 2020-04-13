@@ -13,7 +13,7 @@ public func configure(_ app: Application) throws {
     
     app.databases.use(.postgres(
         hostname: Environment.get("DATABASE_HOST") ?? "localhost",
-        port: 5434,
+        port: 5432,
         username: Environment.get("DATABASE_USERNAME") ?? "fweissi",
         password: Environment.get("DATABASE_PASSWORD") ?? "fweissi",
         database: Environment.get("DATABASE_NAME") ?? "fweissi"
@@ -23,7 +23,7 @@ public func configure(_ app: Application) throws {
     
     // configure any services
     app.http.server.configuration.supportVersions = [.one]
-    app.http.server.configuration.hostname = "teratronibook-pro.local"
+//    app.http.server.configuration.hostname = "teratronibook-pro.local"
     app.http.server.configuration.responseCompression = .enabled
     app.http.server.configuration.requestDecompression = .disabled  // .enabled(limit: .none)
     
@@ -35,6 +35,7 @@ public func configure(_ app: Application) throws {
     // let certPath = Environment.get("CERT_PATH")!
     // let keyPath = Environment.get("KEY_PATH")!
 
+    /*
     let publicPath = app.directory.publicDirectory
     let resoucesPath = app.directory.resourcesDirectory
     let certPath = publicPath + "Cert/cert.pem"
@@ -48,7 +49,8 @@ public func configure(_ app: Application) throws {
         ],
         privateKey: .file(keyPath)
     )
-
+*/
+    
     // register routes
     try routes(app)
 }
